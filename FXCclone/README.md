@@ -2,9 +2,12 @@
 
 > English version: [README_EN.md](README_EN.md)
 
-一台 FX-C 把**自己的外部串行 Flash（游戏 cart 镜像）**通过 I2C 连线复制到另一台 FX-C，
+一台 FX-C 把**自己的外部串行 Flash（游戏 cart 镜像）**通过 **USB-C to USB-C 联机线**复制到另一台 FX-C，
 不经过 PC。只复制**已使用区域**（从 Flash 末尾向前扫描，跳过全 0xFF 的 64 KB 块），
 两边 Flash 型号/容量检查通过后，目标机才整片擦除，再逐页写入并校验。
+
+> 联机线使用 **USB-C to USB-C** 线材，但实际是 USB-C **SBU1/SBU2** 上的 I2C，
+> 不是普通 USB 数据/充电协议。请使用带 SBU 连接的全功能线；充电-only 线可能不通。
 
 > **只复制外部 cart Flash，不复制 AVR 内部 bootloader/sketch。**
 > 目标机的 AVR 引导程序不受影响，最坏情况可以重新烧 AVR 或重新 clone。
@@ -28,11 +31,11 @@
 - 默认 I2C 200 kHz（`I2C_FREQUENCY 200000`）；如果链路不稳，把该宏改成
   `100000` 后两台一起重烧（速度约慢一倍）。
 
-编译结果：**Flash 17114 / 29696 B（57%），RAM 1941 / 2560 B（75%）**。
+编译结果：**Flash 17116 / 29696 B（57%），RAM 1941 / 2560 B（75%）**。
 
 ## 2. 使用步骤
 
-1. 两台 FX-C 烧好 FXCclone，连接 I2C 联机线；
+1. 两台 FX-C 烧好 FXCclone，连接 USB-C to USB-C 联机线；
 2. **先操作目标机（RECEIVE）**：
    - 菜单选 `RECEIVE (TARGET)` → `A`；
    - 确认页按 `A`：目标先读自己的 Flash ID，**暂时不擦除**；

@@ -1,11 +1,15 @@
 # FXCclone (FX-C Cart Clone)
 
 FXCclone copies the **external serial flash (game cart image)** of one FX-C to
-another FX-C over the I2C link cable, with no PC in between. Only the **used
-range** is transferred (the source scans backwards from the end of the flash
-and stops at the last non-0xFF 64 KB block). After both flash IDs/capacities
-match, the target erases its whole cart and the source streams/writes the used
-pages with per-page verification.
+another FX-C over the **USB-C to USB-C link cable** (I2C over SBU), with no PC
+in between. Only the **used range** is transferred (the source scans backwards
+from the end of the flash and stops at the last non-0xFF 64 KB block). After
+both flash IDs/capacities match, the target erases its whole cart and the
+source streams/writes the used pages with per-page verification.
+
+> The link cable is a **USB-C to USB-C** cable, but the data actually runs as
+> I2C over the USB-C **SBU1/SBU2** pins, not as USB data. Use a full-featured
+> cable with SBU wiring; charge-only cables may not work.
 
 > **Only the external cart flash is copied; the AVR bootloader/sketch is not.**
 > The target's AVR bootloader remains intact. If the copy is interrupted, the
@@ -35,11 +39,11 @@ pages with per-page verification.
 - Default I2C speed: **200 kHz** (`I2C_FREQUENCY 200000`). If the link is
   unreliable, change it to `100000` and reflash both units (about 2× slower).
 
-Build size: **Flash 17114 / 29696 B (57%), RAM 1941 / 2560 B (75%)**.
+Build size: **Flash 17116 / 29696 B (57%), RAM 1941 / 2560 B (75%)**.
 
 ## 2. Usage
 
-1. Flash FXCclone onto both FX-C units and connect the I2C link cable.
+1. Flash FXCclone onto both FX-C units and connect the USB-C to USB-C link cable.
 2. **Operate the target first (RECEIVE)**:
    - menu: `RECEIVE (TARGET)` → `A`;
    - on the confirmation screen press `A`: the target reads its own Flash ID

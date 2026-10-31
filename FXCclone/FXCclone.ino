@@ -4,7 +4,8 @@
   FX-C Cart Clone
 
   Copies the external serial flash (game cart) from one FX-C to another
-  directly over the I2C link cable - no PC in the middle.
+  directly over the USB-C to USB-C link cable (I2C over SBU) - no PC in the
+  middle.
 
   Both units must run this same sketch. Choose SEND on the source unit and
   RECEIVE on the target unit. After the two flash IDs match, the target's
@@ -670,7 +671,7 @@ void drawTargetScreen() {
     arduboy.setCursor(0, 16);
     arduboy.print(F("WAITING SOURCE"));
     arduboy.setCursor(0, 28);
-    arduboy.print(F("CONNECT LINK CABLE"));
+    arduboy.print(F("USB-C TO USB-C CABLE"));
     arduboy.setCursor(0, 44);
     arduboy.print(F("CART IS ERASED"));
     arduboy.setCursor(0, 56);
@@ -1446,7 +1447,7 @@ void setup() {
   arduboy.setCursor(16, 36);
   arduboy.print(F("SOURCE -> TARGET"));
   arduboy.setCursor(22, 44);
-  arduboy.print(F("I2C LINK CABLE"));
+  arduboy.print(F("USB-C TO USB-C"));
   arduboy.setCursor(0, 56);
   arduboy.print(F("USE CHARGED POWER"));
   arduboy.display();

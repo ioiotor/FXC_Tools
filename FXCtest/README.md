@@ -3,7 +3,7 @@
 > English version: [README_EN.md](README_EN.md)
 
 一个跑在 Arduboy FX-C 上的硬件诊断应用：上电后直接进入菜单，提供屏幕、按键、声音、RGB LED、
-FX 串行 Flash、EEPROM 和双机 I2C 联机等测试。用于组装/维修/出厂检查 FX-C（或 mini 类使用 HWB 片选的硬件）。
+FX 串行 Flash、EEPROM 和双机 I2C 联机等测试。用于检查 FX-C（或 mini 类使用 HWB 片选的硬件）。
 
 > 依赖：Arduboy2 6.0.0、ArduboyI2C 3.0.0；Flash 测试使用程序内置的小型 SPI 驱动，不需要 ArduboyFX 库。
 > LINK 联机测试把 `I2C_BUFFER_CAPACITY` 提高到 48（ArduboyI2C 默认 32），**两台机器必须烧同一版本**。

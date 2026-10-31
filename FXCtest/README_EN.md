@@ -3,7 +3,7 @@
 FXCtest is a hardware diagnostic application for the Arduboy FX-C (and mini-style
 hardware using the HWB flash chip select). It boots directly into a menu and
 provides display, button, sound, RGB LED, FX serial-flash, EEPROM and two-unit
-I2C link tests. It is intended for assembly, repair and production checks.
+I2C link tests. It is intended for checking FX-C units.
 
 > Dependencies: Arduboy2 6.0.0 and ArduboyI2C 3.0.0. The flash test uses a small
 > built-in SPI driver and does not require the ArduboyFX library.
